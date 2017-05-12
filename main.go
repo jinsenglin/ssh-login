@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "os/exec"
+)
 
 type section struct {
     host string
@@ -61,4 +64,10 @@ func main() {
         fmt.Printf("%d -> %d,", r.port, r.port)
     }
 
+    dateCmd := exec.Command("date")
+    dateOut, err := dateCmd.Output()
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(string(dateOut))
 }

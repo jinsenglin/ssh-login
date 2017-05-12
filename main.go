@@ -35,4 +35,30 @@ func main() {
     fmt.Println(roads)
     fmt.Println(roads[0])
     fmt.Println(roads[1])
+
+    r := r1
+    s := r.next_section
+    if s.next_section == nil {
+        fmt.Printf("%d -> %d\n", r.port, s.port)
+    } else {
+        fmt.Printf("%d -> %d,", r.port, r.port)
+
+        s = *s.next_section
+        if s.next_section == nil {
+            fmt.Printf("%d -> %d\n", r.port, s.port)
+        } else {
+            fmt.Printf("%d -> %d,", r.port, r.port)
+
+            s = *s.next_section
+        }
+    }
+
+    r = r2
+    s = r.next_section
+    if s.next_section == nil {
+        fmt.Printf("%d -> %d\n", r.port, s.port)
+    } else {
+        fmt.Printf("%d -> %d,", r.port, r.port)
+    }
+
 }
